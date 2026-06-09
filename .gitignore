@@ -1,0 +1,26 @@
+# Virtual Environment
+pro/
+venv/
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model Weights
+*.pt
+*.pth
+
+# VS Code
+.vscode/
+
+# Streamlit Cache
+.streamlit/cache/
+
+# OS Files
+.DS_Store
+Thumbs.db
