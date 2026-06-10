@@ -63,7 +63,13 @@ The application provides real-time alerts, driver safety scoring, and AI-powered
 * Git
 * GitHub
 
+---
 
+## 🏗️ System Architecture
+
+![Architecture](Architecture.png)
+
+---
 ## 🔄 Workflow
 
 1. Webcam captures live video frames.
@@ -153,4 +159,4 @@ Through this project, I gained practical experience in:
 
 GitHub: https://github.com/Neilshijilkumar
 
-
+LinkedIn: [Add Your LinkedIn Profile]
