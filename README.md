@@ -63,33 +63,6 @@ The application provides real-time alerts, driver safety scoring, and AI-powered
 * Git
 * GitHub
 
----
-
-## 🏗️ System Architecture
-
-![Architecture](Architecture.png)
-
----
-
-## 📸 Project Screenshots
-
-### Dashboard Interface
-
-![Dashboard](screenshots/dashboard.png)
-
-### Drowsiness Detection
-
-![Drowsiness](screenshots/drowsiness.png)
-
-### Mobile Phone Detection
-
-![Phone Detection](screenshots/phone_detection.png)
-
-### Driver Distraction Detection
-
-![Distraction](screenshots/distraction.png)
-
----
 
 ## 🔄 Workflow
 
