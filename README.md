@@ -2,23 +2,31 @@
 
 ## 📌 Overview
 
-AI Driver Monitoring System is a real-time driver safety application developed using Computer Vision, Deep Learning, and Retrieval-Augmented Generation (RAG). The system continuously monitors driver behavior through a webcam and detects unsafe driving conditions such as drowsiness, mobile phone usage, drinking while driving, head-down posture, and driver distraction.
+AI Driver Monitoring System is a real-time intelligent safety application developed using Computer Vision, Deep Learning, and Retrieval-Augmented Generation (RAG). The system continuously monitors driver behavior through a webcam and detects unsafe driving conditions such as drowsiness, mobile phone usage, drinking while driving, head-down posture, and driver distraction.
 
-The system provides real-time visual alerts, audio warnings, driver safety scoring, and AI-powered safety guidance to improve road safety and reduce accident risks.
+The application provides real-time alerts, driver safety scoring, and AI-powered safety guidance to promote safer driving habits and reduce accident risks.
 
 ---
 
-## ✨ Features
+## ✨ Key Features
 
-* 👁️ Drowsiness Detection using Eye Aspect Ratio (EAR)
-* 📱 Mobile Phone Usage Detection using YOLOv8
-* 🥤 Drinking Detection using YOLOv8
-* ↔️ Head Side Distraction Detection using MediaPipe Face Mesh
-* ⬇️ Head Down Posture Detection
-* 🔊 Real-Time Audio Alert System
-* 🤖 RAG-Based Safety Assistant
-* 📊 Driver Safety Score Dashboard
-* 🎨 Interactive Streamlit User Interface
+✅ Drowsiness Detection using Eye Aspect Ratio (EAR)
+
+✅ Mobile Phone Usage Detection using YOLOv8
+
+✅ Drinking Detection using YOLOv8
+
+✅ Head Side Distraction Detection using MediaPipe Face Mesh
+
+✅ Head Down Posture Detection
+
+✅ Real-Time Audio Alert System
+
+✅ Driver Safety Score Dashboard
+
+✅ RAG-Based Safety Assistant
+
+✅ Modern Interactive Streamlit Interface
 
 ---
 
@@ -33,9 +41,11 @@ The system provides real-time visual alerts, audio warnings, driver safety scori
 * OpenCV
 * YOLOv8
 * MediaPipe Face Mesh
+* PyTorch
 
-### Retrieval-Augmented Generation (RAG)
+### Generative AI & Retrieval
 
+* Retrieval-Augmented Generation (RAG)
 * FAISS
 * Sentence Transformers
 
@@ -46,36 +56,61 @@ The system provides real-time visual alerts, audio warnings, driver safety scori
 ### Supporting Libraries
 
 * NumPy
-* PyTorch
+* Pandas
+
+### Version Control
+
+* Git
+* GitHub
 
 ---
 
 ## 🏗️ System Architecture
 
-![System Architecture](Architecture.png)
+![Architecture](Architecture.png)
+
+---
+
+## 📸 Project Screenshots
+
+### Dashboard Interface
+
+![Dashboard](screenshots/dashboard.png)
+
+### Drowsiness Detection
+
+![Drowsiness](screenshots/drowsiness.png)
+
+### Mobile Phone Detection
+
+![Phone Detection](screenshots/phone_detection.png)
+
+### Driver Distraction Detection
+
+![Distraction](screenshots/distraction.png)
 
 ---
 
 ## 🔄 Workflow
 
 1. Webcam captures live video frames.
-2. YOLOv8 detects mobile phone and drinking behavior.
+2. YOLOv8 detects mobile phone usage and drinking behavior.
 3. MediaPipe Face Mesh extracts facial landmarks.
 4. Eye Aspect Ratio (EAR) is calculated for drowsiness detection.
 5. Head orientation analysis detects distraction and head-down posture.
-6. Alert Management Module triggers audio warnings.
-7. FAISS-based RAG system retrieves safety recommendations.
-8. Streamlit dashboard displays real-time monitoring metrics and driver safety score.
+6. Driver safety score is updated dynamically.
+7. Audio alerts are triggered for unsafe behavior.
+8. RAG module retrieves contextual safety guidance.
+9. Streamlit dashboard displays real-time monitoring results.
 
 ---
 
 ## 📁 Project Structure
 
 ```text
-AI-Driver-Monitoring-System
+AI-Driver-Monitoring-System/
 │
 ├── Alerts/
-│   ├── __init__.py
 │   └── alarm.py
 │
 ├── Detection/
@@ -86,6 +121,12 @@ AI-Driver-Monitoring-System
 ├── RAG_system/
 │   ├── knowledge_base.txt
 │   └── rag.py
+│
+├── screenshots/
+│   ├── dashboard.png
+│   ├── drowsiness.png
+│   ├── phone_detection.png
+│   └── distraction.png
 │
 ├── app.py
 ├── requirements.txt
@@ -105,20 +146,31 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## 📈 Future Enhancements
+---
+
+## 🎯 Learning Outcomes
+
+Through this project, I gained practical experience in:
+
+* Real-Time Computer Vision Applications
+* Object Detection using YOLOv8
+* Facial Landmark Analysis using MediaPipe
+* Deep Learning and AI System Development
+* Retrieval-Augmented Generation (RAG)
+* Vector Similarity Search using FAISS
+* Interactive Dashboard Development with Streamlit
+* Git and GitHub Version Control
+
+---
+
+## 🔮 Future Enhancements
 
 * Seatbelt Detection
 * Driver Identity Verification
 * Emotion Recognition
-* Cloud Deployment
 * GPS-Based Driver Analytics
+* Cloud Deployment
 * Advanced Driver Behavior Analysis
-
----
-
-## 🎯 Project Outcome
-
-The system successfully monitors driver attentiveness in real time and provides proactive alerts for unsafe driving behaviors. By integrating Computer Vision, Deep Learning, and RAG, the project demonstrates how AI can enhance road safety through intelligent driver monitoring.
 
 ---
 
@@ -127,3 +179,5 @@ The system successfully monitors driver attentiveness in real time and provides 
 **Neil Shijil Kumar**
 
 GitHub: https://github.com/Neilshijilkumar
+
+LinkedIn: [Add Your LinkedIn Profile]
