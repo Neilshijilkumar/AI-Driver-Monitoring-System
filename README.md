@@ -2,9 +2,9 @@
 
 ## 📌 Overview
 
-AI Driver Monitoring System is a real-time intelligent safety application developed using Computer Vision, Deep Learning,Retrieval-Augmented Generation (RAG),and Local Large Language Models(LLMs). The system detects unsafe driving behaviors and generates context-aware safety recommendations in real time.
+AI Driver Monitoring System is a real-time intelligent safety application developed using Computer Vision, Deep Learning, Retrieval-Augmented Generation (RAG), and Local Large Language Models (LLMs). The system continuously monitors driver behavior through a webcam, detects unsafe driving conditions, and generates context-aware safety recommendations in real time.
 
-The application provides real-time alerts, driver safety scoring, and AI-powered safety guidance to promote safer driving habits and reduce accident risks.
+The application identifies behaviors such as drowsiness, mobile phone usage, drinking while driving, head-down posture, and driver distraction. It provides real-time alerts, driver safety scoring, and AI-powered safety guidance to promote safer driving habits and reduce accident risks.
 
 ---
 
