@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-AI Driver Monitoring System is a real-time intelligent safety application developed using Computer Vision, Deep Learning, and Retrieval-Augmented Generation (RAG). The system continuously monitors driver behavior through a webcam and detects unsafe driving conditions such as drowsiness, mobile phone usage, drinking while driving, head-down posture, and driver distraction.
+AI Driver Monitoring System is a real-time intelligent safety application developed using Computer Vision, Deep Learning,Retrieval-Augmented Generation (RAG),and Local Large Language Models(LLMs). The system detects unsafe driving behaviors and generates context-aware safety recommendations in real time.
 
 The application provides real-time alerts, driver safety scoring, and AI-powered safety guidance to promote safer driving habits and reduce accident risks.
 
@@ -26,6 +26,8 @@ The application provides real-time alerts, driver safety scoring, and AI-powered
 
 ✅ RAG-Based Safety Assistant
 
+✅AI-Generated Safety Recommendations using Gemma3
+
 ✅ Modern Interactive Streamlit Interface
 
 ---
@@ -41,13 +43,15 @@ The application provides real-time alerts, driver safety scoring, and AI-powered
 * OpenCV
 * YOLOv8
 * MediaPipe Face Mesh
-* PyTorch
+
 
 ### Generative AI & Retrieval
 
 * Retrieval-Augmented Generation (RAG)
 * FAISS
 * Sentence Transformers
+* Ollama(Local LLM Inference)
+* Gemma 3(LLM)
 
 ### Frontend Dashboard
 
@@ -79,8 +83,9 @@ The application provides real-time alerts, driver safety scoring, and AI-powered
 5. Head orientation analysis detects distraction and head-down posture.
 6. Driver safety score is updated dynamically.
 7. Audio alerts are triggered for unsafe behavior.
-8. RAG module retrieves contextual safety guidance.
-9. Streamlit dashboard displays real-time monitoring results.
+8. FAISS retrieves relevant information from the knowledge base
+9. Gemma3(via ollama) generates context-aware safety reccomendations.
+10. Streamlit dashboard displays real time monitoring results and alerts.
 
 ---
 
@@ -139,6 +144,9 @@ Through this project, I gained practical experience in:
 * Vector Similarity Search using FAISS
 * Interactive Dashboard Development with Streamlit
 * Git and GitHub Version Control
+* Local LLM Integration using Ollama
+* Prompt Engineering for AI applications.
+  
 
 ---
 
