@@ -100,7 +100,9 @@ defaults = {
     "head_side_counter": 0,
     "head_down_counter": 0,
     "eye_start_time": None,
-    "alarm_on": False
+    "alarm_on": False,
+    "last_event":"",
+    "cached_message":""
 }
 
 for k, v in defaults.items():
@@ -321,28 +323,39 @@ while st.session_state.run:
 
     # ---------------- MESSAGE ----------------
     if drowsy:
-        msg = retrieve_response("drowsy driving")
+        current_event = "drowsy driving"
         frame_msg = "DROWSINESS ALERT"
 
     elif phone_alert:
-        msg = retrieve_response("mobile phone distraction")
+        current_event = "mobile phone distraction"
         frame_msg = "PHONE DETECTED"
 
     elif bottle_alert:
-        msg = retrieve_response("drinking while driving")
+        current_event = "drinking while driving"
         frame_msg = "DRINKING DETECTED"
 
     elif head_down:
-        msg = retrieve_response("head down posture")
+        current_event = "head down posture"
         frame_msg = "HEAD DOWN ALERT"
 
     elif head_side:
-        msg = retrieve_response("looking sideways")
+        current_event = "looking sideways"
         frame_msg = "LOOKING SIDEWAYS"
 
     else:
-        msg = "Driver is attentive and focused."
+        current_event = "safe driving"
         frame_msg = "SAFE DRIVING"
+
+
+    if current_event != st.session_state.last_event:
+
+        st.session_state.cached_message = retrieve_response(
+        current_event
+    )
+
+        st.session_state.last_event = current_event
+
+    msg = st.session_state.cached_message
 
     danger = (
         drowsy or

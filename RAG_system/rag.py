@@ -3,6 +3,7 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 import streamlit as st
+import ollama
 
 # ==========================================
 # LOAD MODEL
@@ -40,6 +41,8 @@ documents = load_documents()
 # ==========================================
 @st.cache_resource
 def build_index():
+    if not documents:
+        raise ValueError("Knowledge base is empty")
 
     embeddings = model.encode(
         documents,
@@ -81,6 +84,43 @@ def get_document(keyword):
 
 
 # ==========================================
+# LLM GENERATION
+# ==========================================
+def generate_response(query, context):
+
+    prompt = f"""
+    You are an AI driver safety assistant.
+    Use ONLY the provided safety context.
+
+    Detected Event:
+    {query}
+
+    Safety Context:
+    {context}
+
+    Provide a concise safety recommendation in 2-3 sentences.
+    Do not invent information that is not present in the context.
+    """
+    try:
+        response = ollama.chat(
+        model="gemma3:1b",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
+
+        return response["message"]["content"]
+
+
+    except Exception as e:
+            print("Error:", e)
+     
+        
+            return context
+# ==========================================
 # RETRIEVAL FUNCTION
 # ==========================================
 def retrieve_response(query):
@@ -111,7 +151,9 @@ def retrieve_response(query):
         )
 
         if doc:
-            return doc
+            return generate_response(
+                query,
+                doc) 
 
     # --------------------------------------
     # DRINKING
@@ -132,7 +174,9 @@ def retrieve_response(query):
         )
 
         if doc:
-            return doc
+            return generate_response(
+                query,
+                doc)
 
     # --------------------------------------
     # DROWSINESS
@@ -153,7 +197,8 @@ def retrieve_response(query):
         )
 
         if doc:
-            return doc
+            return generate_response(
+                query,doc)
 
     # --------------------------------------
     # HEAD DOWN
@@ -172,7 +217,8 @@ def retrieve_response(query):
         )
 
         if doc:
-            return doc
+            return generate_response(
+                query,doc)
 
     # --------------------------------------
     # SIDEWAYS
@@ -180,11 +226,12 @@ def retrieve_response(query):
     if any(
         word in q
         for word in [
-            "sideways",
+            "looking left",
+            "looking right",
+            "head turned left",
+            "head turned right",
             "looking sideways",
-            "head side",
-            "left",
-            "right"
+            "sideways"
         ]
     ):
 
@@ -193,7 +240,8 @@ def retrieve_response(query):
         )
 
         if doc:
-            return doc
+            return generate_response(
+                query,doc)
 
     # --------------------------------------
     # SAFE DRIVING
@@ -212,7 +260,9 @@ def retrieve_response(query):
         )
 
         if doc:
-            return doc
+            return generate_response(
+                query,
+                doc)
 
     # --------------------------------------
     # FAISS FALLBACK
@@ -243,11 +293,17 @@ def retrieve_response(query):
         )
 
         if safe_doc:
-            return safe_doc
+            return generate_response(
+                query,safe_doc)
 
         return (
             "Drive safely and stay focused on the road."
         )
 
-    return documents[best_index]
+    context = documents[best_index]
+
+    return generate_response(
+    query,
+    context
+)
 
